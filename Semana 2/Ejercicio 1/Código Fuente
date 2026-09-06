@@ -1,0 +1,31 @@
+//Diego Mejia Huisacayna
+//U20226104
+//06/09/2026
+ 
+object Main {
+
+  def alertarTemperaturas(temperaturas: List[Int], min: Int, max: Int): Unit = {
+    val it = temperaturas.iterator
+    var hayFuera = false
+
+    while (it.hasNext) {
+      val temp = it.next()
+
+      // Verifica si la temperatura está fuera del rango permitido
+      if (temp < min || temp > max) {
+        println("Temperatura fuera de rango: " + temp)
+        hayFuera = true
+      }
+    }
+
+    // Si alguna temperatura estuvo fuera del rango, muestra la alerta
+    if (hayFuera) {
+      println("Alerta de estabilidad")
+    }
+  }
+
+  def main(args: Array[String]): Unit = {
+    val temperaturas = List(5, 15, 25, 42, 8, 35, 50)
+    alertarTemperaturas(temperaturas, 10, 40)
+  }
+}
