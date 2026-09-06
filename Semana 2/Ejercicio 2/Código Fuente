@@ -1,0 +1,38 @@
+//Diego Mejia Huisacayna
+//U20226104
+//06/09/2026
+
+object Main {
+
+  def buscarProducto(catalogo: Map[String, Double], nombre: String): Unit = {
+    val it = catalogo.iterator
+    var encontrado = false
+
+    while (it.hasNext) {
+      val actual = it.next()
+
+      // Compara el nombre buscado con el producto actual
+      if (actual._1 == nombre) {
+        println("El precio de " + actual._1 + " es $" + actual._2)
+        encontrado = true
+      }
+    }
+
+    // Si no encontró el producto, muestra el mensaje correspondiente
+    if (!encontrado) {
+      println("Producto no encontrado en el catálogo actual")
+    }
+  }
+
+  def main(args: Array[String]): Unit = {
+    val catalogo = Map(
+      "Laptop" -> 2500.0,
+      "Mouse" -> 45.5,
+      "Teclado" -> 120.0,
+      "Monitor" -> 800.0
+    )
+
+    buscarProducto(catalogo, "Mouse")
+    buscarProducto(catalogo, "Impresora")
+  }
+}
