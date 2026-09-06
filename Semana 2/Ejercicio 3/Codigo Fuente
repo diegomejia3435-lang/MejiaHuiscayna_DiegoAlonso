@@ -1,0 +1,24 @@
+//Diego Mejia Huisacayna
+//U20226104
+//06/09/2026
+
+object Main {
+
+  def revisarReposiciones(cantidades: List[Int], umbral: Int): Unit = {
+    val it = cantidades.iterator
+
+    while (it.hasNext) {
+      val cant = it.next()
+
+      // Verifica si la cantidad está por debajo del umbral
+      if (cant < umbral) {
+        println("Cantidad " + cant + " requiere reposición inmediata")
+      }
+    }
+  }
+
+  def main(args: Array[String]): Unit = {
+    val cantidades = List(50, 12, 8, 30, 5, 25)
+    revisarReposiciones(cantidades, 15)
+  }
+}
