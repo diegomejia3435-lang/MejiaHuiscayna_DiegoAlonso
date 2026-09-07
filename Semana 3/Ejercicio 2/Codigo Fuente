@@ -1,0 +1,42 @@
+//Diego Alonso Mejia Huisacayna
+//U20226104
+//06/09/2026
+
+object Main {
+
+  def main(args: Array[String]): Unit = {
+    // Conjunto de etiquetas con espacios y mayúsculas
+    val etiquetas = Set(
+      "  Python  ",
+      "python",
+      "Kotlin",
+      "  AI  ",
+      "go",
+      "Desarrollo",
+      "  "
+    )
+
+    val it = etiquetas.iterator
+    var resultado = ""      // Cadena final
+    var primero = true      // Para controlar si es el primer elemento válido
+
+    while (it.hasNext) {
+      // Quitamos espacios y pasamos a minúsculas
+      val etiqueta = it.next().trim.toLowerCase
+
+      // Solo aceptamos etiquetas de 3 o más caracteres
+      if (etiqueta.length >= 3) {
+        if (primero) {
+          // Primer elemento válido (sin coma)
+          resultado = etiqueta
+          primero = false
+        } else {
+          // Elementos siguientes se separan con coma
+          resultado = resultado + "," + etiqueta
+        }
+      }
+    }
+
+    println(resultado)
+  }
+}
