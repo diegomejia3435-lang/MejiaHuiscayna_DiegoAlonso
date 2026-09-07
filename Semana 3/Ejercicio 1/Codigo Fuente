@@ -1,0 +1,40 @@
+//Diego Alonso Mejia Huisacayna
+//U20226104
+//06/09/2026
+
+object Main {
+
+  case class Libro(titulo: String, autor: String, paginas: Int)
+
+  def main(args: Array[String]): Unit = {
+    // Lista de libros de ejemplo
+    val libros = List(
+      Libro("Don Quijote", "Cervantes", 863),
+      Libro("La Odisea", "Homero", 180),
+      Libro("Crimen y Castigo", "Dostoievski", 671),
+      Libro("El Alquimista", "Coelho", 163)
+    )
+
+    // Creamos un iterador para recorrer la lista
+    val it = libros.iterator
+    var totalCaracteres = 0   // Acumulador del total de caracteres
+
+    // Recorremos todos los libros
+    while (it.hasNext) {
+      val libro = it.next()
+
+      // Solo procesamos los libros con menos de 200 páginas
+      if (libro.paginas < 200) {
+        // Convertimos el título a mayúsculas y le agregamos el prefijo
+        val tituloProcesado = "LECTURA CORTA: " + libro.titulo.toUpperCase
+        println(tituloProcesado)
+
+        // Sumamos la cantidad de caracteres del título procesado
+        totalCaracteres = totalCaracteres + tituloProcesado.length
+      }
+    }
+
+    // Mostramos el total de caracteres al final
+    println("Total de caracteres: " + totalCaracteres)
+  }
+}
