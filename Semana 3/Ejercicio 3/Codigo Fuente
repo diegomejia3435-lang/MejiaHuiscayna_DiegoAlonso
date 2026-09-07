@@ -1,0 +1,44 @@
+//Diego Alonso Mejia Huisacayna
+//U20226104
+//06/09/2026
+
+object Main {
+
+  def main(args: Array[String]): Unit = {
+    // Catálogo de productos
+    val productos = Map(
+      "Silla"     -> 85.0,
+      "Mesa"      -> 45.0,
+      "Escritorio"-> 220.0,
+      "Lámpara"   -> 60.0,
+      "Cuaderno"  -> 12.0
+    )
+
+    val it = productos.iterator
+    var suma = 0.0      // Suma de los precios rebajados
+    var cantidad = 0    // Cantidad de productos que pasaron el filtro
+
+    while (it.hasNext) {
+      val actual = it.next()
+      val nombre = actual._1
+      val precio = actual._2
+
+      // Solo procesamos productos con precio mayor a 50
+      if (precio > 50.0) {
+        // Aplicamos el descuento del 20%
+        val precioRebajado = precio * 0.8
+
+        // Mostramos el producto con el formato pedido
+        println("Producto: " + nombre + " | Precio Rebajado: $" + precioRebajado)
+
+        // Acumulamos para el promedio
+        suma = suma + precioRebajado
+        cantidad = cantidad + 1
+      }
+    }
+
+    // Calculamos e imprimimos el promedio
+    val promedio = suma / cantidad
+    println("Precio promedio: " + promedio)
+  }
+}
